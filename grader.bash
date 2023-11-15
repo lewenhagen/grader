@@ -4,32 +4,18 @@ AUTH="Authorization: Bearer 12133~iiDecoHsYRNR8XzVbNyYaZ1OnZFm3DkTQ2p960WbGptGIc
 
 BASE_URL="https://bth.instructure.com"
 
-TEACHERS=(
-  "Kenneth Lewenhagen" 
-  "Marie Grahn"
-  "Andreas Arnesson"
-  "Bo Peterson" 
-  "ALEX LINDQVIST"
-  "SAMUEL WARD"
-  "KASPER FALK"
-  "JONATHAN GÖRANSSON"
-  "JULIA LIND"
-  "NADJA SPÅNGBERG"
-  "ALBIN STEGLER"
-  "JESPER YLI-HUKKA HÖGBACK"
-)
+
 
 LENGTH=1
 PAGE=1
 GRADEBOOK="result.data"
 COUNTER=0
 
-KMOMS=("kmom01" "kmom02" "kmom03" "kmom04" "kmom05" "kmom06")
-
 function present
 {
+  echo ${TEACHERS[2]}
   awk -f fix.awk $GRADEBOOK
-  sort $GRADEBOOK | uniq -c
+  #sort $GRADEBOOK | uniq -c
   
 }
 
