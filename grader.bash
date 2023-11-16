@@ -13,9 +13,7 @@ COUNTER=0
 
 function present
 {
-  echo ${TEACHERS[2]}
   awk -f fix.awk $GRADEBOOK 
-
   exit 0
 }
 
