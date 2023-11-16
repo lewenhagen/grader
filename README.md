@@ -1,6 +1,6 @@
 # Usage 
 
-1. Create a file "course.data" and enter our course id.
+1. Create a file "course.data" and enter your course id.
 2. Create a file "teachers.data" and add all teachers.
 
 For example:
