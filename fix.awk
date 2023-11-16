@@ -3,9 +3,9 @@
 BEGIN {
   FS="\n"
   total = 0
-  #split(ENVIRON["TEACHERS"], teachers,",\n")
   
   while ((getline temp < "teachers.data") > 0) {
+    gsub(/^ | $/, "", temp)
     kmoms[temp][0] = 0
     kmoms[temp][1] = 0
     kmoms[temp][2] = 0
@@ -36,13 +36,27 @@ BEGIN {
 }
 
 END {
-
   total=0
+  total1=0
+  total2=0
+  total3=0
+  total4=0
+  total5=0
+  total6=0
+  all=0
   printf ("%-25s%s%-8s%-8s%-8s%-8s%-8s%-8s%s%-8s\n", "Name", "|", "Kmom01", "Kmom02", "Kmom03", "Kmom04", "Kmom05", "Kmom06", "|", "Totalt")
   printf ("%s\n", "---------------------------------------------------------------------------------")
   for (name in kmoms) {
+    total1+=kmoms[name][0]
+    total2+=kmoms[name][1]
+    total3+=kmoms[name][2]
+    total4+=kmoms[name][3]
+    total5+=kmoms[name][4]
+    total6+=kmoms[name][5]
     total=kmoms[name][0]+kmoms[name][1]+kmoms[name][2]+kmoms[name][3]+kmoms[name][4]+kmoms[name][5]
     printf ("%-25s%s%-8s%-8s%-8s%-8s%-8s%-8s%s%-8s\n", name, "|", kmoms[name][0], kmoms[name][1], kmoms[name][2], kmoms[name][3], kmoms[name][4], kmoms[name][5], "|", total)
   
   } 
+  printf ("%s\n", "---------------------------------------------------------------------------------")
+  printf ("%-25s%s%-8s%-8s%-8s%-8s%-8s%-8s%s%-8s\n", "Totalt", "|", total1, total2, total3, total4, total5, total6, "|", total1+total2+total3+total4+total5+total6)
 }
