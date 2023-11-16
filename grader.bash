@@ -4,7 +4,7 @@ AUTH="Authorization: Bearer 12133~iiDecoHsYRNR8XzVbNyYaZ1OnZFm3DkTQ2p960WbGptGIc
 
 BASE_URL="https://bth.instructure.com"
 
-COURSEID="5224"
+COURSEID=$(< "course.data")
 
 LENGTH=1
 PAGE=1
