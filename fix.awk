@@ -27,6 +27,12 @@ BEGIN {
       kmoms[$1][1]++
     } else if (prev == "Kmom03") {
       kmoms[$1][2]++
+    } else if (prev == "Kmom04") {
+      kmoms[$1][3]++
+    } else if (prev == "Kmom05") {
+      kmoms[$1][4]++
+    } else if (prev == "Kmom06") {
+      kmoms[$1][5]++
     }
     
     
