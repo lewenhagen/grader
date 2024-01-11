@@ -12,6 +12,7 @@ BEGIN {
     kmoms[temp][3] = 0
     kmoms[temp][4] = 0
     kmoms[temp][5] = 0
+    kmoms[temp][6] = 0
   }
 }
 
@@ -33,7 +34,10 @@ BEGIN {
       kmoms[$1][4]++
     } else if (prev == "Kmom06") {
       kmoms[$1][5]++
+    } else if (prev == "Kmom10 Projekt och examination") {
+      kmoms[$1][6]++
     }
+
     
     
   }
@@ -49,9 +53,10 @@ END {
   total4=0
   total5=0
   total6=0
+  total7=0
   all=0
-  printf ("%-25s%s%-8s%-8s%-8s%-8s%-8s%-8s%s%-8s\n", "Name", "|", "Kmom01", "Kmom02", "Kmom03", "Kmom04", "Kmom05", "Kmom06", "|", "Totalt")
-  printf ("%s\n", "---------------------------------------------------------------------------------")
+  printf ("%-25s%s%-8s%-8s%-8s%-8s%-8s%-8s%-8s%s%-8s\n", "Name", "|", "Kmom01", "Kmom02", "Kmom03", "Kmom04", "Kmom05", "Kmom06", "Kmom10", "|", "Totalt")
+  printf ("%s\n", "-----------------------------------------------------------------------------------------")
   for (name in kmoms) {
     total1+=kmoms[name][0]
     total2+=kmoms[name][1]
@@ -59,10 +64,11 @@ END {
     total4+=kmoms[name][3]
     total5+=kmoms[name][4]
     total6+=kmoms[name][5]
-    total=kmoms[name][0]+kmoms[name][1]+kmoms[name][2]+kmoms[name][3]+kmoms[name][4]+kmoms[name][5]
-    printf ("%-25s%s%-8s%-8s%-8s%-8s%-8s%-8s%s%-8s\n", name, "|", kmoms[name][0], kmoms[name][1], kmoms[name][2], kmoms[name][3], kmoms[name][4], kmoms[name][5], "|", total)
+    total7+=kmoms[name][6]
+    total=kmoms[name][0]+kmoms[name][1]+kmoms[name][2]+kmoms[name][3]+kmoms[name][4]+kmoms[name][5]+kmoms[name][6]
+    printf ("%-25s%s%-8s%-8s%-8s%-8s%-8s%-8s%-8s%s%-8s\n", name, "|", kmoms[name][0], kmoms[name][1], kmoms[name][2], kmoms[name][3], kmoms[name][4], kmoms[name][5], kmoms[name][6], "|", total)
   
   } 
-  printf ("%s\n", "---------------------------------------------------------------------------------")
-  printf ("%-25s%s%-8s%-8s%-8s%-8s%-8s%-8s%s%-8s\n", "Totalt", "|", total1, total2, total3, total4, total5, total6, "|", total1+total2+total3+total4+total5+total6)
+  printf ("%s\n", "-----------------------------------------------------------------------------------------")
+  printf ("%-25s%s%-8s%-8s%-8s%-8s%-8s%-8s%-8s%s%-8s\n", "Totalt", "|", total1, total2, total3, total4, total5, total6, total7, "|", total1+total2+total3+total4+total5+total6+total7)
 }
