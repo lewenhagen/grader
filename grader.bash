@@ -36,9 +36,38 @@ function getnew
   exit 0
 }
 
-[[ "$1" = "new" ]] && getnew
+function save {
+    local course
+    if [[ -f "course.data" ]]; then 
+        course=$(< "course.data")
+        if [[ -f "result.data" ]]; then
+            present > $course"_save"
+        fi 
+    fi
+    
+    exit 0
+}
+
+function init {
+    read -p "course code? " temp
+    echo $temp > "course.data"
+
+    printf "%s\n" "New course code added: $temp"
+    exit 0
+}
+
+function viewTeachers
+{
+    more "teachers.data"
+    exit 0
+}
+
+[[ "$1" = "fetch" ]] && getnew
 [[ "$1" = "print" ]] && present
+[[ "$1" = "save" ]] && save
+[[ "$1" = "init" ]] && init
+[[ "$1" = "teachers" ]] && viewTeachers
   
-printf "%s\n%s\n%s\n" "Commands:" "'print' (Prints current stats)" "'new' (Fetches new data from Canvas)"
+printf "%s\n%s\n%s\n%s\n%s\n" "Commands:" "'init' (Initiates new coursecode)" "'fetch' (Fetches new data from Canvas)" "'save' (Saves the current result)" "'print' (Prints current stats)"
 
 exit 1
