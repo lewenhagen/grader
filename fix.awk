@@ -56,7 +56,7 @@ END {
   teachertotal=0
 
   all=0
-  printf ("%-25s%s%-8s%-8s%-8s%-8s%-8s%-8s%-8s%s%-8s%-8s%-6s%s\n", "Name", "|", "Kmom01", "Kmom02", "Kmom03", "Kmom04", "Kmom05", "Kmom06", "Kmom10", "|", "Totalt", "%", "G", "%G")
+  printf ("%-20s%s%8s%8s%8s%8s%8s%8s%8s%s%8s%7s%6s%7s\n", "Name", "|", "Kmom01", "Kmom02", "Kmom03", "Kmom04", "Kmom05", "Kmom06", "Kmom10", "|", "Totalt", "%", "G", "%G")
   printf ("%s\n", "--------------------------------------------------------------------------------------------------------------")
   for (name in kmoms) {
     total1+=kmoms[name][0]
@@ -86,11 +86,14 @@ END {
       amountG = kmoms[name]["G"]
       g_percentage = (kmoms[name]["G"] / kmoms[name][7])*100
     }
-    printf ("%-25s%s%-8s%-8s%-8s%-8s%-8s%-8s%-8s%s%-8s%-8.2f%-6s%.2f\n", name, "|", kmoms[name][0], kmoms[name][1], kmoms[name][2], kmoms[name][3], kmoms[name][4], kmoms[name][5], kmoms[name][6], "|", kmoms[name][7], tot_percentage, amountG, g_percentage)
+    printf ("%-20s%s%8s%8s%8s%8s%8s%8s%8s%s%8s%6.0f%%%6s%6.0f%%\n", name, "|", kmoms[name][0], kmoms[name][1], kmoms[name][2], kmoms[name][3], kmoms[name][4], kmoms[name][5], kmoms[name][6], "|", kmoms[name][7], tot_percentage, amountG, g_percentage)
 
   }
     alltotal_g_percentage = (alltotal_g / alltotal)*100
     printf ("%s\n", "---------------------------------------------------------------------------------------------------------------")
 
-    printf ("%-25s%s%-8s%-8s%-8s%-8s%-8s%-8s%-8s%s%-8s%-8.2f%-6s%-8.2f\n", "Totalt", "|", total1, total2, total3, total4, total5, total6, total7, "|", alltotal, 100.00, alltotal_g, alltotal_g_percentage)
+    printf ("%-20s%s%8s%8s%8s%8s%8s%8s%8s%s%8s%6.0f%%%6s%6.0f%%\n", "Totalt", "|", total1, total2, total3, total4, total5, total6, total7, "|", alltotal, 100.00, alltotal_g, alltotal_g_percentage)
+    printf ("%s\n", "---------------------------------------------------------------------------------------------------------------")
+    printf ("%-20s%s%7.0f%%%7.0f%%%7.0f%%%7.0f%%%7.0f%%%7.0f%%%7.0f%%\n", "Genomströmming", "|", (total1/total1*100), (total2/total1*100), (total3/total1*100), (total4/total1*100), (total5/total1*100), (total6/total1*100), (total7/total1*100))
+
 }
