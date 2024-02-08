@@ -58,29 +58,14 @@ function init {
     exit 0
 }
 
-function viewTeachers
-{
-    more "teachers.data"
-    exit 0
-}
-
-function addTeacher
-{
-    shift
-    for t in "$@"; do
-        echo "$t" >> "teachers.data"
-    done
-
-    exit 0
-}
 
 [[ "$1" = "fetch" ]] && getnew
 [[ "$1" = "print" ]] && present
 [[ "$1" = "save" ]] && save
 [[ "$1" = "init" ]] && init
-[[ "$1" = "teachers" ]] && viewTeachers
-[[ "$1" = "add" ]] && addTeacher "$@"
+# [[ "$1" = "teachers" ]] && viewTeachers
+# [[ "$1" = "add" ]] && addTeacher "$@"
 
-printf "%s\n%s\n%s\n%s\n%s\n%s\n" "Commands:" "'init' (Use new coursecode)" "'fetch' (Fetches new data from Canvas)" "'save' (Saves the current result)" "'print' (Prints current result)" "'add <teacher1 teacher2..>' (Adds teacher to list)"
+printf "%s\n%s\n%s\n%s\n%s\n%s\n" "Commands:" "'init' (Use new coursecode)" "'fetch' (Fetches new data from Canvas)" "'save' (Saves the current result)" "'print' (Prints current result)"
 
 exit 1
