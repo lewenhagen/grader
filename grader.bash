@@ -17,6 +17,12 @@ function present
   exit 0
 }
 
+function presentTable
+{
+  node print.js
+  exit 0
+}
+
 function getnew
 {
   echo "Getting new data..."
@@ -61,6 +67,7 @@ function init {
 
 [[ "$1" = "fetch" ]] && getnew
 [[ "$1" = "print" ]] && present
+[[ "$1" = "table" ]] && presentTable
 [[ "$1" = "save" ]] && save
 [[ "$1" = "init" ]] && init
 # [[ "$1" = "teachers" ]] && viewTeachers
