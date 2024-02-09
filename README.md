@@ -4,7 +4,8 @@
 
 For example:
 `$ echo 1234 > course.data`
-```$ cat course.data
+```
+$ cat course.data
 1234
 ```
 
