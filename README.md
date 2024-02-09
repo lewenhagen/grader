@@ -9,6 +9,10 @@ course.data
 1234
 ```
 
+2. Get a Canvas token from https://bth.instructure.com/profile/settings.
+
+Add the token to the environment variable CANVAS_TOKEN.
+
 <!-- 2. Create a file "teachers.data" and add all teachers. One per row.
 
 For example:
