@@ -13,20 +13,10 @@ course.data
 
 Add the token to the environment variable CANVAS_TOKEN.
 
-<!-- 2. Create a file "teachers.data" and add all teachers. One per row.
-
-For example:
-
-teachers.data
-```text
-John Doe
-Jane Doe
-Doe Jane
-Doe John
-``` -->
 
 3. Run `$ bash grader.bash fetch` # get new data
-4. Run `$ bash grader.bash print` # print the data
+4. Run `$ bash grader.bash print` # print the data with awk
+5. Run `$ bash grader.bash table` # print the data with js
 
 -----------------------------------------------------------
 ```
@@ -35,4 +25,5 @@ Commands:
 'fetch' (Fetches new data from Canvas)
 'save' (Saves the current result)
 'print' (Prints current result)
+'table' (Prints the result with js)
 ```
