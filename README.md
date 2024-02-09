@@ -1,11 +1,10 @@
 # Usage 
 
-1. Create a file "course.data" and enter your course id.
+1. Create a file "course.data" and enter your course identifier.
 
 For example:
-
-course.data
-```text
+`$ echo 1234 > course.data`
+```$ cat course.data
 1234
 ```
 
