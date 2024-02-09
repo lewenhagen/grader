@@ -3,8 +3,13 @@
 AUTH="Authorization: Bearer $CANVAS_TOKEN"
 
 BASE_URL="https://bth.instructure.com"
+COURSEID=""
 
-COURSEID=$(< "course.data")
+# if [[ -f "course.data" ]]; then
+#   COURSEID=$(< "course.data")
+# else
+#   echo "No course added yet"
+# fi
 
 LENGTH=1
 PAGE=1
@@ -25,6 +30,15 @@ function presentTable
 
 function getnew
 {
+  if [[ -f "course.data" ]]; then
+    COURSEID=$(< "course.data")
+  else
+    echo "No course added yet."
+    init
+    getnew
+    exit 0
+  fi
+
   echo "Getting new data..."
   > $GRADEBOOK
 
@@ -61,7 +75,6 @@ function init {
     echo $temp > "course.data"
 
     printf "%s\n" "New course code added: $temp"
-    exit 0
 }
 
 
@@ -69,10 +82,10 @@ function init {
 [[ "$1" = "print" ]] && present
 [[ "$1" = "table" ]] && presentTable
 [[ "$1" = "save" ]] && save
-[[ "$1" = "init" ]] && init
+# [[ "$1" = "init" ]] && init
 # [[ "$1" = "teachers" ]] && viewTeachers
 # [[ "$1" = "add" ]] && addTeacher "$@"
 
-printf "%s\n%s\n%s\n%s\n%s\n%s\n" "Commands:" "'init' (Use new coursecode)" "'fetch' (Fetches new data from Canvas)" "'save' (Saves the current result)" "'print' (Prints current result)"
+printf "%s\n%s\n%s\n%s\n%s\n%s\n" "Commands:" "'fetch' (Fetches new data from Canvas)" "'save' (Saves the current result)" "'print' (Prints current result)"
 
 exit 1
