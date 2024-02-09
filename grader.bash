@@ -82,10 +82,7 @@ function init {
 [[ "$1" = "print" ]] && present
 [[ "$1" = "table" ]] && presentTable
 [[ "$1" = "save" ]] && save
-# [[ "$1" = "init" ]] && init
-# [[ "$1" = "teachers" ]] && viewTeachers
-# [[ "$1" = "add" ]] && addTeacher "$@"
 
-printf "%s\n%s\n%s\n%s\n%s\n%s\n" "Commands:" "'fetch' (Fetches new data from Canvas)" "'save' (Saves the current result)" "'print' (Prints current result)"
+printf "%s\n%s\n%s\n%s\n%s\n%s\n" "Commands:" "'fetch' (Fetches new data from Canvas)" "'save' (Saves the current result)" "'print' (Prints current result with AWK)" "'table' (Prints current result with js)"
 
 exit 1
