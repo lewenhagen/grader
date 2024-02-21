@@ -38,7 +38,6 @@ function doMagic(data) {
 
         // For Extra
         kmom in total.Total ? total.Total[kmom]++ : total.Total[kmom] = 1
-        kmom in total.Total ? total.Total[kmom]++ : total.Total[kmom] = 1
         kmom in total["Genomströmning"] ? total["Genomströmning"][kmom] = Math.round((total.Total[kmom] / total.Total["Kmom01"])*100) + "%" : total["Genomströmning"][kmom] = 0
     }
 
