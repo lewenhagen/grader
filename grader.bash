@@ -63,6 +63,7 @@ function save {
     if [[ -f "course.data" ]]; then
         course=$(< "course.data")
         if [[ -f "result.data" ]]; then
+            echo "Saved to file: $(< "course.data")_save"
             present > $course"_save"
         fi
     fi
