@@ -75,7 +75,6 @@ function init {
     echo $temp > "course.data"
 
     printf "%s\n" "New course code added: $temp"
-    exit 0
 }
 
 
